@@ -6,33 +6,25 @@
 //  Copyright © 2018年 20161104568. All rights reserved.
 //
 
-#include <stdio.h>
-#define N 4
-int main(){
-    int a[N]={0};
-    int i,min,max,sum;
-    sum=0;
-    for(i=0;i<N;i++)
-    {
-        printf("请输入裁判给的分数:");
-        scanf("%d",&a[i]);
-        if(a[i]<0||a[i]>100)
-        {
-            printf("输入有误，请重新输入:");
-            scanf("%d",&a[i]);
-        }
-        
-    }
-    min=a[0];
-    max=a[0];
-    for(i=0;i<N;i++)
-    {
-        if(min>a[i])
-            min=a[i];
-        if(max<a[i])
-            max=a[i];
-        sum+=a[i];
+#include <stdio.h>10
 
+void main()
+{ float score[10];
+    float min,max,ave;
+    float sum=0.0;
+    int i;
+    printf("input 10 score:\n");
+    for(i=0;i<10;i++) scanf("%f",&score[i]);
+    printf("\n");
+    min=score[0];
+    max=score[0];
+    for(i=0;i<10;i++){
+        sum=sum+score[i];
+        if(score[i]>max) max=score[i];
+        if(score[i]<min) min=score[i];
     }
-    printf("该选手的平均分为:%d",(sum-min-max)/(N-2));
+    ave=(sum-max-min)/8;
+    printf("The max=%f\n",max);
+    printf("The min=%f\n",min);
+    printf("The ave=%f\n",ave);
 }
